@@ -1,9 +1,9 @@
-import { NavbarComponent } from "./components/NavbarComponent";
+
 
 function App() {
   return (
     <>
-      <NavbarComponent />
+      <h1>Hello World</h1>
     </>
   );
 }
