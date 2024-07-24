@@ -24,10 +24,16 @@ const Navbar = () => {
             <NavLink to="/" className="nav-item nav-link">
               Home
             </NavLink>
+            <NavLink to="/jobs" className="nav-item nav-link">
+              Jobs
+            </NavLink>
             <NavLink to="/about" className="nav-item nav-link">
               About
             </NavLink>
-            <div className="nav-item dropdown">
+            <NavLink to="/contact" className="nav-item nav-link">
+              Contact
+            </NavLink>
+            {/* <div className="nav-item dropdown">
               <a
                 to="#"
                 className="nav-link dropdown-toggle"
@@ -63,10 +69,8 @@ const Navbar = () => {
                   404
                 </a>
               </div>
-            </div>
-            <a to="contact.html" className="nav-item nav-link">
-              Contact
-            </a>
+            </div> */}
+            
           </div>
           <a
             to=""

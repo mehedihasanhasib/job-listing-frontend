@@ -20,16 +20,16 @@ const SearchHome = () => {
                   />
                 </div>
                 <div className="col-md-4">
-                  <select className="form-select border-0">
-                    <option selected>Category</option>
+                  <select className="form-select border-0" defaultValue={""}>
+                    <option value="" disabled>Category</option>
                     <option value="1">Category 1</option>
                     <option value="2">Category 2</option>
                     <option value="3">Category 3</option>
                   </select>
                 </div>
                 <div className="col-md-4">
-                  <select className="form-select border-0">
-                    <option selected>Location</option>
+                  <select className="form-select border-0" defaultValue={""}>
+                    <option value="" disabled>Location</option>
                     <option value="1">Location 1</option>
                     <option value="2">Location 2</option>
                     <option value="3">Location 3</option>

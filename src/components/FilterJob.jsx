@@ -6,14 +6,14 @@ const FilterJob = () => {
       {/* <!-- Add filtering section --> */}
       <div className="row mb-5">
         <div className="col-12">
-          <div className="filter-card">
+          <div className="" style={{ borderRadius: "8px", margin:"0 20px" }}>
             <h4 className="filter-title">Find Your Perfect Job</h4>
             <form id="job-filter-form">
               <div className="row g-3">
                 <div className="col-md-4 col-lg-3">
                   <div className="form-floating">
-                    <select className="form-select" id="filter-location">
-                      <option value="" disabled selected>
+                    <select className="form-select" id="filter-location" defaultValue={""}>
+                      <option value="" disabled>
                         Select Location
                       </option>
                       <option value="new-york">New York</option>
@@ -29,8 +29,8 @@ const FilterJob = () => {
                 </div>
                 <div className="col-md-4 col-lg-3">
                   <div className="form-floating">
-                    <select className="form-select" id="filter-salary">
-                      <option value="" disabled selected>
+                    <select className="form-select" id="filter-salary" defaultValue={""}>
+                      <option value="" disabled>
                         Select Salary Range
                       </option>
                       <option value="0-50000">$0 - $50,000</option>
@@ -58,8 +58,8 @@ const FilterJob = () => {
                 </div>
                 <div className="col-md-4 col-lg-3">
                   <div className="form-floating">
-                    <select className="form-select" id="filter-education">
-                      <option value="" disabled selected>
+                    <select className="form-select" id="filter-education" defaultValue={""}>
+                      <option value="" disabled>
                         Select Education
                       </option>
                       <option value="high-school">High School</option>

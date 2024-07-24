@@ -8,6 +8,8 @@ import "/src/assets/css/style.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
+import Jobs from "./pages/Jobs.jsx";
+import Contacts from "./pages/Contacts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +21,23 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/jobs",
+        element: <Jobs />
+      },
+      {
         path: "/about",
         element: <About />
+      },
+      {
+        path: "/contact",
+        element: <Contacts />
       }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
