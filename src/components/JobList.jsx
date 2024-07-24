@@ -1,4 +1,4 @@
-import "bootstrap/dist/js/bootstrap";
+
 import FullTime from "./tabs/FullTime";
 import Featured from "./tabs/Featured";
 import PartTime from "./tabs/PrtTime";
@@ -7,11 +7,12 @@ import BrowseMore from "./BrowseMore";
 const JobList = () => {
   return (
     <>
-      <div className="container-xxl py-5">
+    
+      <div className="container-xxl">
         <div className="container">
-          <h1 className="text-center mb-5" data-wow-delay="0.1s">
+          {/* <h1 className="text-center mb-5" data-wow-delay="0.1s">
             Job Listing
-          </h1>
+          </h1> */}
           <div
             className="tab-className text-center"
             data-wow-delay="0.3s"
@@ -49,7 +50,6 @@ const JobList = () => {
               <Featured />
               <FullTime />
               <PartTime />
-
               <BrowseMore />
             </div>
           </div>

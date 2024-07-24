@@ -30,8 +30,8 @@ const Navbar = () => {
             <NavLink to="/about" className="nav-item nav-link">
               About
             </NavLink>
-            <NavLink to="/contact" className="nav-item nav-link">
-              Contact
+            <NavLink to="/login" className="nav-item nav-link">
+              Login
             </NavLink>
             {/* <div className="nav-item dropdown">
               <a
@@ -72,12 +72,12 @@ const Navbar = () => {
             </div> */}
             
           </div>
-          <a
-            to=""
+          <NavLink
+            to="/login"
             className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
           >
-            Post A Job<i className="fa fa-arrow-right ms-3"></i>
-          </a>
+            Login<i className="fa fa-arrow-right ms-3"></i>
+          </NavLink>
         </div>
       </nav>
     </>

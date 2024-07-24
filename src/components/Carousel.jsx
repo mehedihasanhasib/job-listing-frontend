@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 
 const Carousel = () => {
@@ -13,8 +14,8 @@ const Carousel = () => {
                                 <div className="col-10 col-lg-8">
                                     <h1 className="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
                                     <p className="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="" className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="" className="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <NavLink to="/jobs" className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</NavLink>
+                                    <NavLink to="" className="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</NavLink>
                                 </div>
                             </div>
                         </div>

@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-
-import "/src/assets/css/bootstrap.min.css";
-import "/src/assets/css/style.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Jobs from "./pages/Jobs.jsx";
-import Contacts from "./pages/Contacts.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import NotFound from "./pages/NotFound.jsx";
+
+import "./assets/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css"
+import "./assets/css/style.css";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,12 @@ const router = createBrowserRouter([
         element: <About />
       },
       {
-        path: "/contact",
-        element: <Contacts />
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "*",
+        element: <NotFound />
       }
     ],
   },

@@ -97,7 +97,7 @@
 		.btn-primary:hover {
 			background-color: #45a049;
 			border-color: #45a049;
-			transform: translateY(-2px);
+			/* transform: translateY(-2px); */
 		}
 
 		.form-floating > .form-control:not(:placeholder-shown) ~ label,
