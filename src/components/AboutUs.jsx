@@ -1,6 +1,6 @@
 
 
-const HomeAboutUs = () => {
+const AboutUs = () => {
     return (
         <>
           <div className="container-xxl py-5">
@@ -37,4 +37,4 @@ const HomeAboutUs = () => {
     );
 }
 
-export default HomeAboutUs;
+export default AboutUs;

@@ -1,10 +1,13 @@
+import AboutUs from "../components/AboutUs";
+import Header from "../components/Header";
 
 
 const About = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+        <Header title="About Us"/>
+        <AboutUs />
+        </>
     );
 }
 
