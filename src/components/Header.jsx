@@ -1,4 +1,5 @@
 export default function Header({title}) {
+  // console.log(style);
   return (
     <>
       <div className="container-xxl py-5 bg-dark page-header mb-5">

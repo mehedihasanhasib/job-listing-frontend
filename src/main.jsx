@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound.jsx";
 import "./assets/css/bootstrap.min.css";
 // import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/css/style.css";
+import SignupPage from "./pages/SignUpPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />
+      },
+      {
+        path: "/signup",
+        element: <SignupPage />
       },
       {
         path: "*",
