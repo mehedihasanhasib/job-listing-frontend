@@ -1,4 +1,4 @@
-
+import "bootstrap/dist/js/bootstrap.bundle";
 import FullTime from "./tabs/FullTime";
 import Featured from "./tabs/Featured";
 import PartTime from "./tabs/PrtTime";
