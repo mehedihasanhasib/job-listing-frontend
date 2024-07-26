@@ -5,6 +5,7 @@ import { faUser, faEnvelope, faLock, faBuilding } from '@fortawesome/free-solid-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from "../components/Header";
+import { NavLink } from 'react-router-dom';
 
 const SignupPage = () => {
   const [fullName, setFullName] = useState('');
@@ -105,7 +106,7 @@ const SignupPage = () => {
                 </Button>
               </Form>
               <div className="text-center">
-                <p>Already have an account? <a href="#" className="text-primary">Sign in</a></p>
+                <p>Already have an account? <NavLink to="/login" className="text-primary">Sign in</NavLink></p>
               </div>
             </Card.Body>
           </Card>
