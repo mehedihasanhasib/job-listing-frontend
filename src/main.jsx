@@ -13,6 +13,7 @@ import "./assets/css/bootstrap.min.css";
 // import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/css/style.css";
 import SignupPage from "./pages/SignUpPage.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
       }
     ],
   },
