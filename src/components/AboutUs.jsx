@@ -9,16 +9,16 @@ const AboutUs = () => {
                     <div className="col-lg-6">
                         <div className="row g-0 about-bg rounded overflow-hidden">
                             <div className="col-6 text-start">
-                                <img className="img-fluid w-100" src="src/assets/img/about-1.jpg" />
+                                <img className="img-fluid w-100" src="/img/about-1.jpg" />
                             </div>
                             <div className="col-6 text-start">
-                                <img className="img-fluid" src="src/assets/img/about-2.jpg" style={{ width: "85%", marginTop: "15%" }} />
+                                <img className="img-fluid" src="/img/about-2.jpg" style={{ width: "85%", marginTop: "15%" }} />
                             </div>
                             <div className="col-6 text-end">
-                                <img className="img-fluid" src="src/assets/img/about-3.jpg" style={{ width: "85%" }} />
+                                <img className="img-fluid" src="/img/about-3.jpg" style={{ width: "85%" }} />
                             </div>
                             <div className="col-6 text-end">
-                                <img className="img-fluid w-100" src="src/assets/img/about-4.jpg" />
+                                <img className="img-fluid w-100" src="/img/about-4.jpg" />
                             </div>
                         </div>
                     </div>

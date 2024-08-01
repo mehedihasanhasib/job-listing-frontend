@@ -9,7 +9,7 @@ const Featured = () => {
                     <div className="col-sm-12 col-md-8 d-flex align-items-center">
                       <img
                         className="flex-shrink-0 img-fluid border rounded"
-                        src="src/assets/img/com-logo-1.jpg"
+                        src="/img/com-logo-1.jpg"
                         alt=""
                         style={{ width: "80px", height: "80px" }}
                       />
