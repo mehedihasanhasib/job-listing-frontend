@@ -14,6 +14,7 @@ import "./assets/css/style.css";
 import SignupPage from "./pages/SignUpPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import PersonalInfo from "./components/profile/PersonalInfo.jsx";
+import EducationInfo from "./components/profile/EducationInfo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
             index: true, element: <PersonalInfo />
           },
           {
-            path: "/profile/education", element: <h1>Hello</h1>,
+            path: "/profile/education", element: <EducationInfo />,
           },
         ]
       },
