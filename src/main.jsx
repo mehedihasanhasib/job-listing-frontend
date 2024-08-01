@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -14,6 +13,7 @@ import "./assets/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import SignupPage from "./pages/SignUpPage.jsx";
 import Profile from "./pages/Profile.jsx";
+import PersonalInfo from "./components/profile/PersonalInfo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,34 +26,42 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs",
-        element: <Jobs />
+        element: <Jobs />,
       },
       {
         path: "/about",
-        element: <About />
+        element: <About />,
       },
       {
         path: "/login",
-        element: <LoginPage />
+        element: <LoginPage />,
       },
       {
         path: "/signup",
-        element: <SignupPage />
+        element: <SignupPage />,
       },
       {
         path: "*",
-        element: <NotFound />
+        element: <NotFound />,
       },
       {
         path: "/profile",
-        element: <Profile />
-      }
+        element: <Profile />,
+        children: [
+          {
+            index: true, element: <PersonalInfo />
+          },
+          {
+            path: "/profile/education", element: <h1>Hello</h1>,
+          },
+        ]
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />
   // </React.StrictMode>
 );
