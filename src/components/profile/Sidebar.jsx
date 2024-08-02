@@ -24,10 +24,10 @@ export default function Sidebar() {
           >
             <FaCog className="me-3" /> Education/Training
           </NavLink>
-          <NavLink href="#notifications" className="p-2">
+          <NavLink href="#" className="p-2">
             <FaBell className="me-3" /> Notifications
           </NavLink>
-          <NavLink href="#logout" className="p-2">
+          <NavLink href="#" className="p-2">
             <FaSignOutAlt className="me-3" /> Logout
           </NavLink>
         </ListGroup>
