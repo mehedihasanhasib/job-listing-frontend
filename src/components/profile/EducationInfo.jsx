@@ -1,10 +1,7 @@
 
 import { Row, Col, Card } from "react-bootstrap";
-import { GetEducation } from "./GetEducation";
-import { EditEducation } from "./EditEducation";
 
 const EducationInfo = () => {
-  const arr = [1,2,3,4]
 
   return (
     <Col md={9}>
@@ -14,7 +11,7 @@ const EducationInfo = () => {
           <Row className="mb-4">
             {/* <GetEducation degree="BSC" institute="National University" year="2020" cgpa="3.84/4.00" /> */}
            
-              {arr.map((e,i)=> (<EditEducation key={i} />))}
+              education
             
           </Row>
         </Card.Body>
