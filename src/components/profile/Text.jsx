@@ -1,11 +1,15 @@
-import { FaEnvelope } from "react-icons/fa";
+/* eslint-disable react/prop-types */
+import { Col } from "react-bootstrap";
 
-const Text = () => {
+const Text = ({label, value}) => {
   return (
     <>
-      <p>
-        <FaEnvelope className="me-2" /> <strong>john.doe@example.com</strong>
-      </p>
+      <Col md={6}>
+        <span style={{ fontSize: "15px" }}>{label}</span>
+        <p>
+          <strong>{value}</strong>
+        </p>
+      </Col>
     </>
   );
 };
