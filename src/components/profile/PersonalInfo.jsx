@@ -1,27 +1,42 @@
-import { useEffect, useState } from "react";
-import { Row, Col, Card, Button, Spinner, Form } from "react-bootstrap";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { Row, Col, Card, Button, Form } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import Text from "./Text";
-import Edit from "./Edit";
+
+const TextView = ({ label, value }) => (
+  <Text label={label} value={value} />
+);
+
+const EditView = ({ label, name, value, onChange }) => (
+  <Col md={6} className="mt-2">
+    <Form.Group>
+      <Form.Label htmlFor={name}>{label}</Form.Label>
+      <Form.Control id={name} name={name} value={value} onChange={onChange} />
+    </Form.Group>
+  </Col>
+);
 
 const PersonalInfo = () => {
-  const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [edit, setEdit] = useState(false);
+  const userData = {
+    firstName: "Mehedi Hasan",
+    lastName: "Hasib",
+    email: "hasib@gmail.com",
+    phone: "01965046625",
+  };
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/users/1")
-      .then((res) => res.json())
-      .then((data) => {
-        setUser({ ...user, ...data });
-        setIsLoading(true);
-      });
-  }, []);
+  const [user, setUser] = useState(userData);
+  const [editMode, setEditMode] = useState(false);
 
-  const {firstName, lastName, email, phone} = user;
+  const { firstName, lastName, email, phone } = user;
 
-  const toggleEdit = () => {
-    setEdit(!edit);
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
   };
 
   return (
@@ -29,67 +44,35 @@ const PersonalInfo = () => {
       <Card className="shadow-sm rounded border-0">
         <Card.Header className="bg-primary text-white border-0 d-flex align-items-center justify-content-between">
           <div>Personal Info</div>
+
           <Button
             variant="link"
             className="d-flex align-items-center gap-1"
             style={{ color: "white" }}
-            onClick={toggleEdit}
+            onClick={toggleEditMode}
           >
-            <FaEdit /> <span>Edit</span>
+            <FaEdit /> <span>{editMode ? "Save" : "Edit"}</span>
           </Button>
         </Card.Header>
 
         <Card.Body>
           <Row className="mb-4">
-            {isLoading ? (
-              !edit ? (
-                <>
-                  <Text
-                    label={"First Name"}
-                    value={firstName}
-                  />
-                  <Text
-                    label={"Last Name"}
-                    value={lastName}
-                  />
-                  <Text
-                    label={"Email"}
-                    value={email}
-                  />
-                  <Text
-                    label={"Phone"}
-                    value={phone}
-                  />
-                  
-                </>
-              ) : (
-                <>
-                  <Edit
-                    label={"First name"}
-                    value={firstName}
-                  />
-                  <Edit
-                    label={"Laste name"}
-                    value={lastName}
-                  />
-                  <Edit
-                    label={"Email"}
-                    value={email}
-                  />
-                  <Edit
-                    label={"Phone"}
-                    value={phone}
-                  />
-                  <Col md={12} className="d-flex justify-content-end mt-4">
-                    <Button>Update</Button>
-                  </Col>
-                </>
-              )
+            {!editMode ? (
+              <>
+                <TextView label="First Name" value={firstName} />
+                <TextView label="Last Name" value={lastName} />
+                <TextView label="Email" value={email} />
+                <TextView label="Phone" value={phone} />
+              </>
             ) : (
               <>
-                <div className="d-flex align-items-center justify-content-center mt-2">
-                  <Spinner variant="primary" />
-                </div>
+                <EditView label="First Name" name="firstName" value={firstName} onChange={handleChange} />
+                <EditView label="Last Name" name="lastName" value={lastName} onChange={handleChange} />
+                <EditView label="Email" name="email" value={email} onChange={handleChange} />
+                <EditView label="Phone" name="phone" value={phone} onChange={handleChange} />
+                <Col md={12} className="d-flex justify-content-end mt-4">
+                  <Button onClick={toggleEditMode}>Update</Button>
+                </Col>
               </>
             )}
           </Row>
