@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Col } from "react-bootstrap";
 
-const Text = ({label, value}) => {
+const TextView = ({label, value}) => {
   return (
     <>
       <Col md={6}>
@@ -14,4 +14,4 @@ const Text = ({label, value}) => {
   );
 };
 
-export default Text;
+export default TextView;
