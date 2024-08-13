@@ -29,11 +29,21 @@ const PersonalInfo = () => {
     gender: "Gender",
     phone: "Phone",
   };
+  const inputTypes = {
+    firstName: "text",
+    lastName: "text",
+    email: "email",
+    fatherName: "text",
+    motherName: "text",
+    dob: "text",
+    gender: "select",
+    phone: "text",
+  };
+
+  const genders = ["Male", "Female"];
 
   const [user, setUser] = useState(userData);
   const [editMode, setEditMode] = useState(false);
-
-  const { firstName, lastName, email, fatherName, motherName, dob, gender, phone } = user;
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -48,7 +58,11 @@ const PersonalInfo = () => {
   return (
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
-        <CardHeader text={"Personal Info"} editMode={editMode} action={toggleEditMode} />
+        <CardHeader
+          text={"Personal Info"}
+          editMode={editMode}
+          action={toggleEditMode}
+        />
 
         <Card.Body>
           <Row className="mb-4">
@@ -58,13 +72,25 @@ const PersonalInfo = () => {
                   <TextView
                     key={uuidv4()}
                     label={labelMap[key]}
+                    name={key}
                     value={value}
                   />
                 ))}
               </>
             ) : (
               <>
-                <EditView
+                {Object.entries(user).map(([key, value], index) => (
+                  <EditView
+                    key={index}
+                    type={inputTypes[key]}
+                    label={labelMap[key]}
+                    name={key}
+                    value={value}
+                    onChange={handleChange}
+                    genders={genders}
+                  />
+                ))}
+                {/* <EditView
                   label="First Name"
                   name="firstName"
                   value={firstName}
@@ -111,7 +137,7 @@ const PersonalInfo = () => {
                   name="phone"
                   value={phone}
                   onChange={handleChange}
-                />
+                /> */}
               </>
             )}
           </Row>
