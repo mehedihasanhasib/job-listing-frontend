@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Row, Col, Card, Button } from "react-bootstrap";
-import TextView from "./TextView";
-import EditView from "./EditView";
+import { Row, Col, Card } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
+
+import TextView from "./inputs/TextView";
+import EditView from "./inputs/EditView";
+import CardHeader from "./CardHeader";
 
 const PersonalInfo = () => {
   const userData = {
@@ -16,10 +19,21 @@ const PersonalInfo = () => {
     phone: "01965046625",
   };
 
+  const labelMap = {
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Email Address",
+    fatherName: "Father Name",
+    motherName: "Mother Name",
+    dob: "Date of Birth",
+    gender: "Gender",
+    phone: "Phone",
+  };
+
   const [user, setUser] = useState(userData);
   const [editMode, setEditMode] = useState(false);
 
-  const { firstName, lastName, email, phone } = user;
+  const { firstName, lastName, email, fatherName, motherName, dob, gender, phone } = user;
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -28,34 +42,24 @@ const PersonalInfo = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
+    console.log(name, value);
   };
 
   return (
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
-        <Card.Header className="bg-primary text-white border-0 d-flex align-items-center justify-content-between">
-          <div>Personal Info</div>
-
-          <Button
-            className="d-flex align-items-center gap-1"
-            style={{ color: "white" }}
-            onClick={toggleEditMode}
-          >
-            {/* <FaEdit /> */}
-            <span>{editMode ? "Save" : "Edit"}</span>
-          </Button>
-        </Card.Header>
+        <CardHeader text={"Personal Info"} editMode={editMode} action={toggleEditMode} />
 
         <Card.Body>
           <Row className="mb-4">
             {!editMode ? (
               <>
                 {Object.entries(user).map(([key, value]) => (
-                <TextView
-                  key={key}
-                  label={key}
-                  value={value}
-                />
+                  <TextView
+                    key={uuidv4()}
+                    label={labelMap[key]}
+                    value={value}
+                  />
                 ))}
               </>
             ) : (
@@ -79,17 +83,35 @@ const PersonalInfo = () => {
                   onChange={handleChange}
                 />
                 <EditView
+                  label="Father Name"
+                  name="fatherName"
+                  value={fatherName}
+                  onChange={handleChange}
+                />
+                <EditView
+                  label="Mother Name"
+                  name="motherName"
+                  value={motherName}
+                  onChange={handleChange}
+                />
+                <EditView
+                  label="Date of Birth"
+                  name="dob"
+                  value={dob}
+                  onChange={handleChange}
+                />
+                <EditView
+                  label="Gender"
+                  name="gender"
+                  value={gender}
+                  onChange={handleChange}
+                />
+                <EditView
                   label="Phone"
                   name="phone"
                   value={phone}
                   onChange={handleChange}
                 />
-                <Col
-                  md={12}
-                  className="d-flex justify-content-end mt-4"
-                >
-                  <Button onClick={toggleEditMode}>Update</Button>
-                </Col>
               </>
             )}
           </Row>
