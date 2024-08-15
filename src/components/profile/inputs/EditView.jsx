@@ -53,7 +53,7 @@ const EditView = ({ type, label, name, value, onChange, genders }) => {
               onChange={onChange}
             >
               {genders.map((option, index)=>(
-                <option selected={option === value} key={index} value={option}>{option}</option>
+                <option key={index} value={option}>{option}</option>
               ))}
             </Form.Select>
           </Form.Group>

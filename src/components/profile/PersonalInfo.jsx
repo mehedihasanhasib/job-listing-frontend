@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
@@ -8,6 +8,15 @@ import EditView from "./inputs/EditView";
 import CardHeader from "./CardHeader";
 
 const PersonalInfo = () => {
+  const getUser = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+
+  useEffect(() => {
+    getUser("https://dummyjson.com/users/1");
+  }, []);
   const userData = {
     firstName: "Mehedi Hasan",
     lastName: "Hasib",
@@ -52,7 +61,6 @@ const PersonalInfo = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-    console.log(name, value);
   };
 
   return (
@@ -90,54 +98,6 @@ const PersonalInfo = () => {
                     genders={genders}
                   />
                 ))}
-                {/* <EditView
-                  label="First Name"
-                  name="firstName"
-                  value={firstName}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Last Name"
-                  name="lastName"
-                  value={lastName}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Email"
-                  name="email"
-                  value={email}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Father Name"
-                  name="fatherName"
-                  value={fatherName}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Mother Name"
-                  name="motherName"
-                  value={motherName}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Date of Birth"
-                  name="dob"
-                  value={dob}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Gender"
-                  name="gender"
-                  value={gender}
-                  onChange={handleChange}
-                />
-                <EditView
-                  label="Phone"
-                  name="phone"
-                  value={phone}
-                  onChange={handleChange}
-                /> */}
               </>
             )}
           </Row>
