@@ -1,22 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid";
 
 import TextView from "./inputs/TextView";
 import EditView from "./inputs/EditView";
 import CardHeader from "./CardHeader";
 
 const PersonalInfo = () => {
-  const getUser = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
 
-  useEffect(() => {
-    getUser("https://dummyjson.com/users/1");
-  }, []);
   const userData = {
     firstName: "Mehedi Hasan",
     lastName: "Hasib",
@@ -26,27 +17,6 @@ const PersonalInfo = () => {
     dob: "05 Dec 1998",
     gender: "Male",
     phone: "01965046625",
-  };
-
-  const labelMap = {
-    firstName: "First Name",
-    lastName: "Last Name",
-    email: "Email Address",
-    fatherName: "Father Name",
-    motherName: "Mother Name",
-    dob: "Date of Birth",
-    gender: "Gender",
-    phone: "Phone",
-  };
-  const inputTypes = {
-    firstName: "text",
-    lastName: "text",
-    email: "email",
-    fatherName: "text",
-    motherName: "text",
-    dob: "text",
-    gender: "select",
-    phone: "text",
   };
 
   const genders = ["Male", "Female"];
@@ -63,6 +33,8 @@ const PersonalInfo = () => {
     setUser({ ...user, [name]: value });
   };
 
+  const {firstName, lastName, email, fatherName, motherName, dob, gender, phone} = user;
+  
   return (
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
@@ -76,28 +48,25 @@ const PersonalInfo = () => {
           <Row className="mb-4">
             {!editMode ? (
               <>
-                {Object.entries(user).map(([key, value]) => (
-                  <TextView
-                    key={uuidv4()}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                  />
-                ))}
+                <TextView label="First Name" value={firstName}/>
+                <TextView label="Last Name" value={lastName}/>
+                <TextView label="Email" value={email}/>
+                <TextView label="Father Name" value={fatherName}/>
+                <TextView label="Mother Name" value={motherName}/>
+                <TextView label="Date of Birth" value={dob}/>
+                <TextView label="Gender" value={gender}/>
+                <TextView label="phone" value={phone}/>
               </>
             ) : (
               <>
-                {Object.entries(user).map(([key, value], index) => (
-                  <EditView
-                    key={index}
-                    type={inputTypes[key]}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                    onChange={handleChange}
-                    genders={genders}
-                  />
-                ))}
+                <EditView type="text" label="First Name" name="firstName" value={firstName} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="Last Name" name="lastName" value={lastName} onChange={handleChange} genders={genders}/>
+                <EditView type="email" label="Email" name="email" value={email} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="Father Name" name="fatherName" value={fatherName} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="Mother Name" name="motherName" value={motherName} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="Date of Birth" name="dob" value={dob} onChange={handleChange} genders={genders}/>
+                <EditView type="select" label="Gender" name="gender" value={gender} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="Phone" name="phone" value={phone} onChange={handleChange} genders={genders}/>
               </>
             )}
           </Row>
