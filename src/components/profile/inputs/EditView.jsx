@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Form, Col } from "react-bootstrap";
 
-const EditView = ({ type, label, name, value, onChange, genders }) => {
+const EditView = ({ type, label, name, value, onChange }) => {
+  const genders = ["Male", "Female"];
   switch (type) {
     case "text":
       return (

@@ -19,7 +19,7 @@ const PersonalInfo = () => {
     phone: "01965046625",
   };
 
-  const genders = ["Male", "Female"];
+  
 
   const [user, setUser] = useState(userData);
   const [editMode, setEditMode] = useState(false);
@@ -59,14 +59,14 @@ const PersonalInfo = () => {
               </>
             ) : (
               <>
-                <EditView type="text" label="First Name" name="firstName" value={firstName} onChange={handleChange} genders={genders}/>
-                <EditView type="text" label="Last Name" name="lastName" value={lastName} onChange={handleChange} genders={genders}/>
-                <EditView type="email" label="Email" name="email" value={email} onChange={handleChange} genders={genders}/>
-                <EditView type="text" label="Father Name" name="fatherName" value={fatherName} onChange={handleChange} genders={genders}/>
-                <EditView type="text" label="Mother Name" name="motherName" value={motherName} onChange={handleChange} genders={genders}/>
-                <EditView type="text" label="Date of Birth" name="dob" value={dob} onChange={handleChange} genders={genders}/>
-                <EditView type="select" label="Gender" name="gender" value={gender} onChange={handleChange} genders={genders}/>
-                <EditView type="text" label="Phone" name="phone" value={phone} onChange={handleChange} genders={genders}/>
+                <EditView type="text" label="First Name" name="firstName" value={firstName} onChange={handleChange} />
+                <EditView type="text" label="Last Name" name="lastName" value={lastName} onChange={handleChange} />
+                <EditView type="email" label="Email" name="email" value={email} onChange={handleChange} />
+                <EditView type="text" label="Father Name" name="fatherName" value={fatherName} onChange={handleChange} />
+                <EditView type="text" label="Mother Name" name="motherName" value={motherName} onChange={handleChange} />
+                <EditView type="text" label="Date of Birth" name="dob" value={dob} onChange={handleChange} />
+                <EditView type="select" label="Gender" name="gender" value={gender} onChange={handleChange} />
+                <EditView type="text" label="Phone" name="phone" value={phone} onChange={handleChange} />
               </>
             )}
           </Row>

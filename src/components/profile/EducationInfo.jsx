@@ -1,145 +1,146 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Row, Col, Card } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid";
+import { Row, Col, Card, Form } from "react-bootstrap";
 
 import TextView from "./inputs/TextView";
 import EditView from "./inputs/EditView";
 import CardHeader from "./CardHeader";
 
 const EducationInfo = () => {
-  const userData = {
-    firstName: "Mehedi Hasan",
-    lastName: "Hasib",
-    email: "hasib@gmail.com",
-    fatherName: "Abul Kalam Azad",
-    motherName: "Masuda Begum",
-    dob: "05 Dec 1998",
-    gender: "Male",
-    phone: "01965046625",
+  const educationData = [
+    {
+      degree: "Bachelor of Science",
+      exam: "BSC",
+      group: "CSE",
+      year: "2024",
+      cgpa: "3.94",
+      scale: "4.00",
+    },
+    {
+      degree: "Higher Secondery School",
+      exam: "HSC",
+      group: "Science",
+      year: "2020",
+      cgpa: "4.88",
+      scale: "5.00",
+    },
+  ];
+
+  const [educations, setEducations] = useState(educationData);
+  const [editModes, setEditModes] = useState(educationData.map(() => false));
+
+  const toggleEditMode = (index) => {
+    setEditModes((prevEditModes) => {
+      prevEditModes[index] = !prevEditModes[index];
+      return [...prevEditModes];
+    });
   };
 
-  const labelMap = {
-    firstName: "First Name",
-    lastName: "Last Name",
-    email: "Email Address",
-    fatherName: "Father Name",
-    motherName: "Mother Name",
-    dob: "Date of Birth",
-    gender: "Gender",
-    phone: "Phone",
-  };
-  const inputTypes = {
-    firstName: "text",
-    lastName: "text",
-    email: "email",
-    fatherName: "text",
-    motherName: "text",
-    dob: "text",
-    gender: "select",
-    phone: "text",
-  };
-
-  const genders = ["Male", "Female"];
-
-  const [user, setUser] = useState(userData);
-  const [editAcdemic1, setAcademic1] = useState(false);
-  const [editAcdemic2, setAcademic2] = useState(false);
-  
-
-  const toggleeditAcdemic1 = () => {
-    setAcademic1(!editAcdemic1);
-  };
-  const toggleeditAcdemic2 = () => {
-    setAcademic2(!editAcdemic2);
-  };
-
-  const handleChange = (e) => {
+  const handleChange = (e, index) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-    console.log(name, value);
+    setEducations((prev) => {
+      prev[index][name] = value;
+      return [...prev];
+    });
   };
 
   return (
-    <Col md={9}>
-      <Card className="shadow-sm rounded border-0">
-        <CardHeader
-          text={"Academic 1"}
-          editMode={editAcdemic1}
-          action={toggleeditAcdemic1}
-        />
-
-        <Card.Body>
-          <Row className="mb-4">
-            {!editAcdemic1 ? (
-              <>
-                {Object.entries(user).map(([key, value]) => (
-                  <TextView
-                    key={uuidv4()}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                  />
-                ))}
-              </>
-            ) : (
-              <>
-                {Object.entries(user).map(([key, value], index) => (
-                  <EditView
-                    key={index}
-                    type={inputTypes[key]}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                    onChange={handleChange}
-                    genders={genders}
-                  />
-                ))}
-              </>
-            )}
-          </Row>
-        </Card.Body>
-      </Card>
-
-      {/* academic 2 starts here */}
-      <Card className="shadow-sm rounded border-0">
-        <CardHeader
-          text={"Academic 2"}
-          editMode={editAcdemic2}
-          action={toggleeditAcdemic2}
-        />
-        <Card.Body>
-          <Row className="mb-4">
-            {!editAcdemic2 ? (
-              <>
-                {Object.entries(user).map(([key, value]) => (
-                  <TextView
-                    key={uuidv4()}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                  />
-                ))}
-              </>
-            ) : (
-              <>
-                {Object.entries(user).map(([key, value], index) => (
-                  <EditView
-                    key={index}
-                    type={inputTypes[key]}
-                    label={labelMap[key]}
-                    name={key}
-                    value={value}
-                    onChange={handleChange}
-                    genders={genders}
-                  />
-                ))}
-              </>
-            )}
-          </Row>
-        </Card.Body>
-      </Card>
-    </Col>
+    <>
+      <Col md={9}>
+        {educations.map((education, index) => {
+          const { degree, exam, group, year, cgpa, scale } = education;
+          return (
+            <Card
+              key={index}
+              className="shadow-sm rounded border-0"
+            >
+              <CardHeader
+                text={degree}
+                editMode={editModes[index]}
+                action={() => toggleEditMode(index)}
+              />
+              <Card.Body>
+                <Row className="mb-4">
+                  {!editModes[index] ? (
+                    <>
+                      <TextView
+                        label="Degree"
+                        value={degree}
+                      />
+                      <TextView
+                        label="Exam"
+                        value={exam}
+                      />
+                      <TextView
+                        label="Group/Subject"
+                        value={group}
+                      />
+                      <TextView
+                        label="Year"
+                        value={year}
+                      />
+                      <TextView
+                        label="CGPA/GPA"
+                        value={cgpa}
+                      />
+                      <TextView
+                        label="Scale"
+                        value={scale}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <EditView
+                        type="text"
+                        label="Degree"
+                        name="degree"
+                        value={degree}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                      <EditView
+                        type="text"
+                        label="Exam"
+                        name="exam"
+                        value={exam}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                      <EditView
+                        type="text"
+                        label="Group/Subject"
+                        name="group"
+                        value={group}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                      <EditView
+                        type="text"
+                        label="Year"
+                        name="year"
+                        value={year}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                      <EditView
+                        type="text"
+                        label="CGPA/GPA"
+                        name="cgpa"
+                        value={cgpa}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                      <EditView
+                        type="text"
+                        label="Scale"
+                        name="scale"
+                        value={scale}
+                        onChange={(e) => handleChange(e, index)}
+                      />
+                    </>
+                  )}
+                </Row>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </Col>
+    </>
   );
 };
 
