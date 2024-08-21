@@ -19,8 +19,6 @@ const PersonalInfo = () => {
     phone: "01965046625",
   };
 
-  
-
   const [user, setUser] = useState(userData);
   const [editMode, setEditMode] = useState(false);
 
@@ -33,8 +31,8 @@ const PersonalInfo = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const {firstName, lastName, email, fatherName, motherName, dob, gender, phone} = user;
-  
+  const { firstName, lastName, email, fatherName, motherName, dob, gender, phone } = user;
+
   return (
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
@@ -48,14 +46,19 @@ const PersonalInfo = () => {
           <Row className="mb-4">
             {!editMode ? (
               <>
-                <TextView label="First Name" value={firstName}/>
-                <TextView label="Last Name" value={lastName}/>
-                <TextView label="Email" value={email}/>
-                <TextView label="Father Name" value={fatherName}/>
-                <TextView label="Mother Name" value={motherName}/>
-                <TextView label="Date of Birth" value={dob}/>
-                <TextView label="Gender" value={gender}/>
-                <TextView label="phone" value={phone}/>
+                {/* <TextView label="First Name" value={firstName} />
+                <TextView label="Last Name" value={lastName} />
+                <TextView label="Email" value={email} />
+                <TextView label="Father Name" value={fatherName} />
+                <TextView label="Mother Name" value={motherName} />
+                <TextView label="Date of Birth" value={dob} />
+                <TextView label="Gender" value={gender} />
+                <TextView label="phone" value={phone} /> */}
+                {
+                  Object.entries(userData).map(([key, value], index) => {
+                    return <TextView key={index} label={key} value={value} />
+                  })
+                }
               </>
             ) : (
               <>
@@ -64,7 +67,7 @@ const PersonalInfo = () => {
                 <EditView type="email" label="Email" name="email" value={email} onChange={handleChange} />
                 <EditView type="text" label="Father Name" name="fatherName" value={fatherName} onChange={handleChange} />
                 <EditView type="text" label="Mother Name" name="motherName" value={motherName} onChange={handleChange} />
-                <EditView type="text" label="Date of Birth" name="dob" value={dob} onChange={handleChange} />
+                <EditView type="date" label="Date of Birth" name="dob" value={dob} onChange={handleChange} />
                 <EditView type="select" label="Gender" name="gender" value={gender} onChange={handleChange} />
                 <EditView type="text" label="Phone" name="phone" value={phone} onChange={handleChange} />
               </>

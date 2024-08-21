@@ -30,7 +30,25 @@ const EditView = ({ type, label, name, value, onChange }) => {
           <Form.Group>
             <Form.Label htmlFor={name}>{label}</Form.Label>
             <Form.Control
-            type="email"
+              type="email"
+              id={name}
+              name={name}
+              value={value}
+              onChange={onChange}
+            />
+          </Form.Group>
+        </Col>
+      );
+    case "date":
+      return (
+        <Col
+          md={6}
+          className="mt-2"
+        >
+          <Form.Group>
+            <Form.Label htmlFor={name}>{label}</Form.Label>
+            <Form.Control
+              type="date"
               id={name}
               name={name}
               value={value}
@@ -53,7 +71,7 @@ const EditView = ({ type, label, name, value, onChange }) => {
               value={value}
               onChange={onChange}
             >
-              {genders.map((option, index)=>(
+              {genders.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
               ))}
             </Form.Select>
