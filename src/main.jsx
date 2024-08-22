@@ -9,12 +9,12 @@ import LoginPage from "./pages/LoginPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 import "./assets/css/bootstrap.min.css";
-// import "bootstrap/dist/css/bootstrap.min.css"
 import "./assets/css/style.css";
 import SignupPage from "./pages/SignUpPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import PersonalInfo from "./components/profile/PersonalInfo.jsx";
 import EducationInfo from "./components/profile/EducationInfo.jsx";
+import Employment from "./components/profile/Employment.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,10 +50,16 @@ const router = createBrowserRouter([
         element: <Profile />,
         children: [
           {
-            index: true, element: <PersonalInfo />
+            index: true,
+            element: <PersonalInfo />
           },
           {
-            path: "/profile/education", element: <EducationInfo />,
+            path: "/profile/education",
+            element: <EducationInfo />,
+          },
+          {
+            path: "/profile/employment",
+            element: <Employment />,
           },
         ]
       },

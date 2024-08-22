@@ -12,6 +12,7 @@ const EducationInfo = () => {
     {
       degree: "Bachelor of Science",
       exam: "BSC",
+      institution: "University of Technology",
       group: "CSE",
       year: "2024",
       cgpa: "3.94",
@@ -20,6 +21,7 @@ const EducationInfo = () => {
     {
       degree: "Higher Secondery School",
       exam: "HSC",
+      institution: "Dhaka College",
       group: "Science",
       year: "2020",
       cgpa: "4.88",
