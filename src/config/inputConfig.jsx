@@ -13,9 +13,24 @@ export const personalConfig = {
   phone: { type: "text", label: "Phone" },
 };
 
+// {
+//   degree: "Bachelor of Science",
+//   exam: "BSC",
+//   group: "CSE",
+//   year: "2024",
+//   cgpa: "3.94",
+//   scale: "4.00",
+// },
+
 export const educationConfig = {
   degree: { type: "text", label: "Degree" },
-  institution: { type: "text", label: "Institution" },
-  graduationYear: { type: "date", label: "Graduation Year" },
-  grade: { type: "text", label: "Grade" },
+  exam: { type: "text", label: "Exam" },
+  group: { type: "text", label: "Group" },
+  year: { type: "text", label: "Year" },
+  cgpa: { type: "text", label: "CGPA" },
+  scale: { type: "text", label: "Scale" },
+  // degree: { type: "text", label: "Degree" },
+  // institution: { type: "text", label: "Institution" },
+  // graduationYear: { type: "date", label: "Graduation Year" },
+  // grade: { type: "text", label: "Grade" },
 };

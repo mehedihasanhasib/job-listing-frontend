@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Row, Col, Card, Form } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 
 import TextView from "./inputs/TextView";
 import EditView from "./inputs/EditView";
 import CardHeader from "./CardHeader";
+import { educationConfig } from "../../config/inputConfig";
 
 const EducationInfo = () => {
   const educationData = [
@@ -48,14 +49,13 @@ const EducationInfo = () => {
     <>
       <Col md={9}>
         {educations.map((education, index) => {
-          const { degree, exam, group, year, cgpa, scale } = education;
           return (
             <Card
               key={index}
               className="shadow-sm rounded border-0"
             >
               <CardHeader
-                text={degree}
+                text={education.degree}
                 editMode={editModes[index]}
                 action={() => toggleEditMode(index)}
               />
@@ -63,75 +63,26 @@ const EducationInfo = () => {
                 <Row className="mb-4">
                   {!editModes[index] ? (
                     <>
-                      <TextView
-                        label="Degree"
-                        value={degree}
-                      />
-                      <TextView
-                        label="Exam"
-                        value={exam}
-                      />
-                      <TextView
-                        label="Group/Subject"
-                        value={group}
-                      />
-                      <TextView
-                        label="Year"
-                        value={year}
-                      />
-                      <TextView
-                        label="CGPA/GPA"
-                        value={cgpa}
-                      />
-                      <TextView
-                        label="Scale"
-                        value={scale}
-                      />
+                      {Object.entries(education).map(([key, value], ind) => (
+                        <TextView
+                          key={ind}
+                          label={educationConfig[key].label}
+                          value={value}
+                        />
+                      ))}
                     </>
                   ) : (
                     <>
-                      <EditView
-                        type="text"
-                        label="Degree"
-                        name="degree"
-                        value={degree}
-                        onChange={(e) => handleChange(e, index)}
-                      />
-                      <EditView
-                        type="text"
-                        label="Exam"
-                        name="exam"
-                        value={exam}
-                        onChange={(e) => handleChange(e, index)}
-                      />
-                      <EditView
-                        type="text"
-                        label="Group/Subject"
-                        name="group"
-                        value={group}
-                        onChange={(e) => handleChange(e, index)}
-                      />
-                      <EditView
-                        type="text"
-                        label="Year"
-                        name="year"
-                        value={year}
-                        onChange={(e) => handleChange(e, index)}
-                      />
-                      <EditView
-                        type="text"
-                        label="CGPA/GPA"
-                        name="cgpa"
-                        value={cgpa}
-                        onChange={(e) => handleChange(e, index)}
-                      />
-                      <EditView
-                        type="text"
-                        label="Scale"
-                        name="scale"
-                        value={scale}
-                        onChange={(e) => handleChange(e, index)}
-                      />
+                      {Object.entries(education).map(([key, value], ind) => (
+                        <EditView
+                          key={ind}
+                          type={educationConfig[key].type}
+                          label={educationConfig[key].label}
+                          name={key}
+                          value={value}
+                          onChange={(e)=> handleChange(e, index)}
+                        />
+                      ))}
                     </>
                   )}
                 </Row>
