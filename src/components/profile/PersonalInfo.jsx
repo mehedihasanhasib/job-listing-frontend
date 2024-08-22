@@ -5,16 +5,16 @@ import { Row, Col, Card } from "react-bootstrap";
 import TextView from "./inputs/TextView";
 import EditView from "./inputs/EditView";
 import CardHeader from "./CardHeader";
+import { personalConfig } from "../../config/inputConfig";
 
 const PersonalInfo = () => {
-
   const userData = {
     firstName: "Mehedi Hasan",
     lastName: "Hasib",
     email: "hasib@gmail.com",
     fatherName: "Abul Kalam Azad",
     motherName: "Masuda Begum",
-    dob: "05 Dec 1998",
+    dob: "1998-12-05",
     gender: "Male",
     phone: "01965046625",
   };
@@ -31,8 +31,6 @@ const PersonalInfo = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const { firstName, lastName, email, fatherName, motherName, dob, gender, phone } = user;
-
   return (
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
@@ -46,30 +44,28 @@ const PersonalInfo = () => {
           <Row className="mb-4">
             {!editMode ? (
               <>
-                {/* <TextView label="First Name" value={firstName} />
-                <TextView label="Last Name" value={lastName} />
-                <TextView label="Email" value={email} />
-                <TextView label="Father Name" value={fatherName} />
-                <TextView label="Mother Name" value={motherName} />
-                <TextView label="Date of Birth" value={dob} />
-                <TextView label="Gender" value={gender} />
-                <TextView label="phone" value={phone} /> */}
-                {
-                  Object.entries(userData).map(([key, value], index) => {
-                    return <TextView key={index} label={key} value={value} />
-                  })
-                }
+                {Object.entries(user).map(([key, value], index) => {
+                  return (
+                    <TextView
+                      key={index}
+                      label={personalConfig[key].label}
+                      value={value}
+                    />
+                  );
+                })}
               </>
             ) : (
               <>
-                <EditView type="text" label="First Name" name="firstName" value={firstName} onChange={handleChange} />
-                <EditView type="text" label="Last Name" name="lastName" value={lastName} onChange={handleChange} />
-                <EditView type="email" label="Email" name="email" value={email} onChange={handleChange} />
-                <EditView type="text" label="Father Name" name="fatherName" value={fatherName} onChange={handleChange} />
-                <EditView type="text" label="Mother Name" name="motherName" value={motherName} onChange={handleChange} />
-                <EditView type="date" label="Date of Birth" name="dob" value={dob} onChange={handleChange} />
-                <EditView type="select" label="Gender" name="gender" value={gender} onChange={handleChange} />
-                <EditView type="text" label="Phone" name="phone" value={phone} onChange={handleChange} />
+                {Object.entries(user).map(([key, value], index) => (
+                  <EditView
+                    key={index}
+                    type={personalConfig[key].type}
+                    label={personalConfig[key].label}
+                    name={key}
+                    value={value}
+                    onChange={handleChange}
+                  />
+                ))}
               </>
             )}
           </Row>
