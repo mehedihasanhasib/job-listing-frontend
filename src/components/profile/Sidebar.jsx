@@ -1,5 +1,5 @@
 import { Col, ListGroup } from "react-bootstrap";
-import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaUser, FaCog, FaSignOutAlt, FaGraduationCap } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
@@ -22,7 +22,13 @@ export default function Sidebar() {
             to="/profile/education"
             className={({ isActive }) => `${isActive ? "bg-primary p-2 text-white" : "p-2"}`}
           >
-            <FaCog className="me-3" /> Education/Training
+            <FaGraduationCap className="me-3" /> Education
+          </NavLink>
+          <NavLink
+            to="/profile/training"
+            className={({ isActive }) => `${isActive ? "bg-primary p-2 text-white" : "p-2"}`}
+          >
+            <FaCog className="me-3" /> Training
           </NavLink>
           <NavLink
             to="/profile/employment"

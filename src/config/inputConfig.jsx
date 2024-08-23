@@ -23,3 +23,11 @@ export const educationConfig = {
   cgpa: { type: "text", label: "CGPA" },
   scale: { type: "text", label: "Scale" },
 };
+
+export const trainingConfig = {
+  trainingTitle: { type: "text", label: "Training Title" },
+  institute: { type: "text", label: "Institute" },
+  startDate: { type: "date", label: "Start Date" },
+  topic: { type: "text", label: "Topic" },
+  location: { type: "text", label: "Location" },
+}

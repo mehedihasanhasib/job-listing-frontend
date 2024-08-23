@@ -15,6 +15,7 @@ import Profile from "./pages/Profile.jsx";
 import PersonalInfo from "./components/profile/PersonalInfo.jsx";
 import EducationInfo from "./components/profile/EducationInfo.jsx";
 import Employment from "./components/profile/Employment.jsx";
+import Training from "./components/profile/Training.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
           {
             path: "/profile/education",
             element: <EducationInfo />,
+          },
+          {
+            path: "/profile/training",
+            element: <Training />
           },
           {
             path: "/profile/employment",
