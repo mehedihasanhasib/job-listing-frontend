@@ -1,6 +1,6 @@
 import Header from "../components/Header";
-import FilterJob from "../components/FilterJob";
-import JobList from "../components/JobList";
+import FilterJob from "../components/Jobs/FilterJob";
+import JobList from '../components/Jobs/JobList';
 
 export default function Jobs(){
     return(

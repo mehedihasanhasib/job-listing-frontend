@@ -1,7 +1,7 @@
-import Carousel from "../components/Carousel";
-import SearchHome from "../components/SearchHome";
-import Category from "../components/Category";
-import JobList from "../components/JobList";
+import Category from "../components/Home/Category";
+import Carousel from "../components/Home/Carousel";
+import SearchHome from "../components/Home/SearchHome";
+import JobList from "../components/Jobs/JobList";
 
 const Home = () => {
   return (

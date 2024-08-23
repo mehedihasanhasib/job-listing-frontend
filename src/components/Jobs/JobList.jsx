@@ -1,13 +1,12 @@
 import "bootstrap/dist/js/bootstrap.bundle";
-import FullTime from "./tabs/FullTime";
-import Featured from "./tabs/Featured";
-import PartTime from "./tabs/PrtTime";
-import BrowseMore from "./BrowseMore";
+import FullTime from "../Tabs/FullTime";
+import Featured from "../Tabs/Featured";
+import PartTime from "../Tabs/PrtTime";
+import BrowseMore from "../BrowseMore";
 
 const JobList = () => {
   return (
     <>
-    
       <div className="container-xxl">
         <div className="container">
           {/* <h1 className="text-center mb-5" data-wow-delay="0.1s">

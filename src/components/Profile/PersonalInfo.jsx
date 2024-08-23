@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 
-import TextView from "./inputs/TextView";
-import EditView from "./inputs/EditView";
+import TextView from "../Inputs/TextView";
+import EditView from "../Inputs/EditView";
 import CardHeader from "./CardHeader";
-import { personalConfig } from "../../config/inputConfig";
+import { personalConfig } from "../../../utils/inputConfig";
 
 const PersonalInfo = () => {
   const userData = {

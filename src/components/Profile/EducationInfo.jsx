@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 
-import TextView from "./inputs/TextView";
-import EditView from "./inputs/EditView";
+import TextView from "../Inputs/TextView";
+import EditView from "../Inputs/EditView";
 import CardHeader from "./CardHeader";
-import { educationConfig } from "../../config/inputConfig";
+import { educationConfig } from "../../../utils/inputConfig";
 
 const EducationInfo = () => {
   const educationData = [

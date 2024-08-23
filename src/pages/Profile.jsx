@@ -1,7 +1,7 @@
 // src/components/ProfilePage.js
 import { Container, Row } from "react-bootstrap";
 
-import Sidebar from "../components/profile/Sidebar";
+import Sidebar from "../components/Profile/Sidebar";
 import { Outlet } from "react-router-dom";
 
 const ProfilePage = () => {

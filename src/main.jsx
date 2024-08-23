@@ -12,10 +12,10 @@ import "./assets/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import SignupPage from "./pages/SignUpPage.jsx";
 import Profile from "./pages/Profile.jsx";
-import PersonalInfo from "./components/profile/PersonalInfo.jsx";
-import EducationInfo from "./components/profile/EducationInfo.jsx";
-import Employment from "./components/profile/Employment.jsx";
-import Training from "./components/profile/Training.jsx";
+import PersonalInfo from './components/Profile/PersonalInfo';
+import EducationInfo from "./components/Profile/EducationInfo.jsx";
+import Training from './components/Profile/Training';
+import Employment from './components/Profile/Employment';
 
 const router = createBrowserRouter([
   {

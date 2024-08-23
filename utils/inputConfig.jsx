@@ -28,6 +28,7 @@ export const trainingConfig = {
   trainingTitle: { type: "text", label: "Training Title" },
   institute: { type: "text", label: "Institute" },
   startDate: { type: "date", label: "Start Date" },
+  endDate: { type: "date", label: "End Date" },
   topic: { type: "text", label: "Topic" },
   location: { type: "text", label: "Location" },
 }

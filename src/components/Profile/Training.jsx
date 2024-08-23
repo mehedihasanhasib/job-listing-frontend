@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
 import CardHeader from "./CardHeader";
-import TextView from "./inputs/TextView"
-import EditView from "./inputs/EditView"
-import { trainingConfig } from "../../config/inputConfig";
+import TextView from "../Inputs/TextView";
+import EditView from "../Inputs/EditView";
+import { trainingConfig } from "../../../utils/inputConfig";
 
 const Training = () => {
     const trainingData = [
@@ -12,6 +12,7 @@ const Training = () => {
             trainingTitle: "Training 1",
             institute: "DYD",
             startDate: "2022-01-01",
+            endDate: "2022-01-31",
             topic: "Databse Maganement",
             location: "Online"
         },
@@ -19,6 +20,7 @@ const Training = () => {
             trainingTitle: "Training 2",
             institute: "DYD",
             startDate: "2022-01-01",
+            endDate: "2022-01-31",
             topic: "Databse Maganement",
             location: "Online"
         },
