@@ -1,8 +1,8 @@
 import "bootstrap/dist/js/bootstrap.bundle";
-import FullTime from "../Tabs/FullTime";
-import Featured from "../Tabs/Featured";
-import PartTime from "../Tabs/PrtTime";
 import BrowseMore from "../BrowseMore";
+import Featured from './TabPanes/Featured';
+import FullTime from "./TabPanes/FullTime";
+import PartTime from "./TabPanes/PartTime";
 
 const JobList = () => {
   return (

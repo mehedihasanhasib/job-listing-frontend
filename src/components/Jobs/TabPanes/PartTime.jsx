@@ -1,9 +1,7 @@
-
-
-const PrtTime = () => {
-    return (
-        <>
-          <div id="part-time" className="tab-pane show p-0">
+const PartTime = () => {
+  return (
+    <>
+      <div id="part-time" className="tab-pane fade p-0">
         <div className="job-item p-4 mb-4">
           <div className="row g-4">
             <div className="col-sm-12 col-md-8 d-flex align-items-center">
@@ -44,9 +42,9 @@ const PrtTime = () => {
             </div>
           </div>
         </div>
-      </div>  
-        </>
-    );
-}
+      </div>
+    </>
+  );
+};
 
-export default PrtTime;
+export default PartTime;

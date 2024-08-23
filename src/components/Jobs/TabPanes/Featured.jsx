@@ -3,7 +3,7 @@
 const Featured = () => {
     return (
         <>
-            <div id="featured" className="tab-pane show p-0 active">
+            <div id="featured" className="tab-pane show fade p-0 active">
                 <div className="job-item p-4 mb-4">
                   <div className="row g-4">
                     <div className="col-sm-12 col-md-8 d-flex align-items-center">

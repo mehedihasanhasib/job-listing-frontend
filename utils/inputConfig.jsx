@@ -13,7 +13,6 @@ export const personalConfig = {
   phone: { type: "text", label: "Phone" },
 };
 
-
 export const educationConfig = {
   degree: { type: "text", label: "Degree" },
   exam: { type: "text", label: "Exam" },
@@ -31,4 +30,13 @@ export const trainingConfig = {
   endDate: { type: "date", label: "End Date" },
   topic: { type: "text", label: "Topic" },
   location: { type: "text", label: "Location" },
-}
+};
+
+export const employmentConfig = {
+  companyName: { type: "text", label: "Company Name" },
+  companyLocation: { type: "text", label: "Company Location" },
+  designation: { type: "text", label: "Designation" },
+  from: { type: "date", label: "From" },
+  to: { type: "date", label: "To" },
+  responsibilities: { type: "text", label: "Responsibilities" },
+};

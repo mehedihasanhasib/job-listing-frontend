@@ -1,4 +1,4 @@
-import "./filter.css"
+import "./css/filter.css"
 
 const FilterJob = () => {
   return (

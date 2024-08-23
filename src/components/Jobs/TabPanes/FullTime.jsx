@@ -3,7 +3,7 @@
 const FullTime = () => {
     return (
         <>
-         <div id="full-time" className="tab-pane show p-0">
+         <div id="full-time" className="tab-pane fade p-0">
                 <div className="job-item p-4 mb-4">
                   <div className="row g-4">
                     <div className="col-sm-12 col-md-8 d-flex align-items-center">
