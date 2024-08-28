@@ -57,7 +57,7 @@ const EducationInfo = () => {
               className="shadow-sm rounded border-0"
             >
               <CardHeader
-                text={education.degree}
+                text={"Academic " + (parseInt(index)+1)}
                 editMode={editModes[index]}
                 action={() => toggleEditMode(index)}
               />

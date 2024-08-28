@@ -16,7 +16,7 @@ export default function Sidebar() {
             end
             className={({ isActive }) => `${isActive ? "bg-primary p-2 text-white" : "p-2"}`}
           >
-            <FaUser className="me-3" /> Personal Information
+            <FaUser className="me-3" /> Personal
           </NavLink>
           <NavLink
             to="/profile/education"

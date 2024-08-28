@@ -50,7 +50,7 @@ const Training = () => {
         return (
           <Card key={index} className="shadow-sm rounded border-0">
             <CardHeader
-              text={"Training" + " " + (parseInt(index) + 1)}
+              text={"Training " + (parseInt(index) + 1)}
               editMode={editModes[index]}
               action={() => toggleEditMode(index)}
             />

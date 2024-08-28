@@ -42,7 +42,7 @@ export default function Employment() {
       {employments.map((employment, index) => {
         return (
           <Card key={index} className="shadow-sm rounded border-0">
-            <CardHeader text={"Employment" + " " + (parseInt(index) + 1)} editMode={editModes[index]} action={() => toggleEditMode(index)} />
+            <CardHeader text={"Employment " + (parseInt(index) + 1)} editMode={editModes[index]} action={() => toggleEditMode(index)} />
             <Card.Body>
               <Row className="mb-4">
                 {!editModes[index] ? (

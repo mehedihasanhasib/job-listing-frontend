@@ -1,6 +1,5 @@
 export const personalConfig = {
-  firstName: { type: "text", label: "First Name" },
-  lastName: { type: "text", label: "Last Name" },
+  name: { type: "text", label: "Name" },
   email: { type: "email", label: "Email" },
   fatherName: { type: "text", label: "Father Name" },
   motherName: { type: "text", label: "Mother Name" },
