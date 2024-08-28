@@ -1,0 +1,4 @@
+.slow-animation {
+    animation-duration: 10s !important; /* Slower animation */
+    animation-timing-function: ease-in-out !important; /* Smooth easing */
+  }

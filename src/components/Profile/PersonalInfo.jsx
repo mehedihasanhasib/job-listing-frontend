@@ -35,7 +35,10 @@ const PersonalInfo = () => {
     <Col md={9}>
       <Card className="shadow-sm rounded border-0">
         {loading ? (
-          <div className="d-flex justify-content-center h-100" style={{ padding: "12% 0" }}>
+          <div
+            className="d-flex justify-content-center h-100"
+            style={{ padding: "12% 0" }}
+          >
             <Spinner
               animation="border"
               variant="primary"
