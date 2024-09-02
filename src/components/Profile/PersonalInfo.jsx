@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Row, Col, Card, Spinner } from "react-bootstrap";
+import { Row, Col, Card, Spinner, Button } from "react-bootstrap";
 
 import TextView from "../Inputs/TextView";
 import EditView from "../Inputs/EditView";
@@ -52,7 +52,7 @@ const PersonalInfo = () => {
               action={toggleEditMode}
             />
             <Card.Body>
-              <Row className="mb-4">
+              <form className="mb-4 row">
                 {!editMode ? (
                   <>
                     {Object.entries(user).map(([key, value], index) => {
@@ -77,9 +77,13 @@ const PersonalInfo = () => {
                         onChange={handleChange}
                       />
                     ))}
+                    <div className="mt-2">
+                      <Button variant="outline-primary" className="m-1">Close</Button>
+                      <Button className="m-1">Update</Button>
+                    </div>
                   </>
                 )}
-              </Row>
+              </form>
             </Card.Body>
           </>
         )}

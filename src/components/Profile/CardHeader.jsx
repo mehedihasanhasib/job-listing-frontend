@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 
 const CardHeader = ({ action, text, editMode }) => {
   return (
-    <Card.Header className="bg-primary text-white border-0 d-flex align-items-center justify-content-between" style={{ height: "10vh" }}>
+    <Card.Header className="bg-primary text-white border-0 d-flex align-items-center justify-content-between">
       <div>{text}</div>
       {!editMode ? (
         <>
