@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Row, Col, Card, Spinner, Button } from "react-bootstrap";
+import { Col, Card, Spinner, Button } from "react-bootstrap";
 
 import TextView from "../Inputs/TextView";
 import EditView from "../Inputs/EditView";
@@ -12,24 +12,34 @@ const PersonalInfo = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
-
+  const [initialData, setInitialData] = useState({});
   useEffect(() => {
     fetch(`${apiEndPoint}/profile/personal/1`)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
+        setInitialData(data);
         setLoading(false);
       });
   }, []);
 
   const toggleEditMode = () => {
-    setEditMode(!editMode);
+    setEditMode(true);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+
+  const closeEdit = ()=>{
+    setUser(initialData)
+    setEditMode(false);
+  }
+
+  const updateUserData = () =>{
+    setEditMode(false);
+  }
 
   return (
     <Col md={9}>
@@ -77,9 +87,9 @@ const PersonalInfo = () => {
                         onChange={handleChange}
                       />
                     ))}
-                    <div className="mt-2">
-                      <Button variant="outline-primary" className="m-1">Close</Button>
-                      <Button className="m-1">Update</Button>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <Button variant="outline-primary" className="m-1" onClick={closeEdit}>Close</Button>
+                      <Button className="m-1" onClick={updateUserData}>Update</Button>
                     </div>
                   </>
                 )}
